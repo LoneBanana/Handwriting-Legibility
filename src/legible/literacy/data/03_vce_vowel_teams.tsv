@@ -1,0 +1,97 @@
+# skill	word	graphemes	sentence
+vce_a	cake	c.a.k.e	We ate cake at the party.
+vce_a	make	m.a.k.e	Let us make a card for mom.
+vce_a	game	g.a.m.e	We played a board game.
+vce_a	lake	l.a.k.e	We swam in the lake.
+vce_a	name	n.a.m.e	Write your name at the top.
+vce_a	gate	g.a.t.e	Close the gate behind you.
+vce_a	cape	c.a.p.e	The hero wore a red cape.
+vce_a	tape	t.a.p.e	Fix the page with tape.
+vce_a	made	m.a.d.e	I made a sandwich.
+vce_a	plane	p.l.a.n.e	The plane flew above the clouds.
+vce_a	shape	sh.a.p.e	A circle is a round shape.
+vce_a	grape	g.r.a.p.e	She ate a green grape.
+vce_i	bike	b.i.k.e	I ride my bike to school.
+vce_i	kite	k.i.t.e	The kite flew high in the sky.
+vce_i	time	t.i.m.e	What time is it?
+vce_i	ride	r.i.d.e	Can I ride on the horse?
+vce_i	line	l.i.n.e	Stand in a line, please.
+vce_i	five	f.i.v.e	I have five pencils.
+vce_i	hide	h.i.d.e	Let us play hide and seek.
+vce_i	pine	p.i.n.e	A pine tree stays green all year.
+vce_i	smile	s.m.i.l.e	Her smile made me happy.
+vce_i	white	wh.i.t.e	Snow is white.
+vce_i	slide	s.l.i.d.e	The kids went down the slide.
+vce_i	prize	p.r.i.z.e	She won first prize.
+vce_o	home	h.o.m.e	Let us go home.
+vce_o	rope	r.o.p.e	Hold on to the rope.
+vce_o	bone	b.o.n.e	The dog chewed a bone.
+vce_o	hole	h.o.l.e	There is a hole in my sock.
+vce_o	nose	n.o.s.e	My nose is cold.
+vce_o	note	n.o.t.e	I left you a note.
+vce_o	joke	j.o.k.e	He told a funny joke.
+vce_o	stone	s.t.o.n.e	I skipped a stone across the lake.
+vce_o	smoke	s.m.o.k.e	Smoke rose from the fire.
+vce_o	globe	g.l.o.b.e	Find our country on the globe.
+vce_o	froze	f.r.o.z.e	The pond froze last night.
+vce_o	spoke	s.p.o.k.e	She spoke to the class.
+vce_u	cute	c.u.t.e	The puppy is so cute.
+vce_u	mule	m.u.l.e	The mule carried the bags.
+vce_u	tube	t.u.b.e	Squeeze the paint from the tube.
+vce_u	rule	r.u.l.e	Follow the rule and wait your turn.
+vce_u	flute	f.l.u.t.e	She plays the flute.
+vce_u	cube	c.u.b.e	Put an ice cube in my drink.
+vce_u	prune	p.r.u.n.e	A prune is a dried plum.
+vce_u	tune	t.u.n.e	He hummed a happy tune.
+vce_u	dune	d.u.n.e	We climbed a sand dune.
+vce_u	huge	h.u.g.e	The whale was huge.
+vce_u	use	u.s.e	Use a pencil for the test.
+vce_u	mute	m.u.t.e	Press the button to mute the sound.
+ai_ay	rain	r.ai.n	The rain fell all day.
+ai_ay	tail	t.ai.l	The dog wagged its tail.
+ai_ay	paint	p.ai.n.t	We will paint the fence.
+ai_ay	wait	w.ai.t	Please wait for me.
+ai_ay	mail	m.ai.l	The mail came early today.
+ai_ay	train	t.r.ai.n	The train goes fast.
+ai_ay	play	p.l.ay	Let us play outside.
+ai_ay	day	d.ay	Have a nice day.
+ai_ay	say	s.ay	What did you say?
+ai_ay	stay	s.t.ay	Stay here until I come back.
+ai_ay	gray	g.r.ay	The sky is gray today.
+ai_ay	tray	t.r.ay	Put the cups on the tray.
+ee_ea	tree	t.r.ee	A bird sat in the tree.
+ee_ea	feet	f.ee.t	My feet are cold.
+ee_ea	green	g.r.ee.n	The grass is green.
+ee_ea	sleep	s.l.ee.p	I need to sleep early tonight.
+ee_ea	see	s.ee	I can see the moon.
+ee_ea	bee	b.ee	A bee landed on the flower.
+ee_ea	sea	s.ea	We swam in the sea.
+ee_ea	read	r.ea.d	I like to read before bed.
+ee_ea	team	t.ea.m	Our team won the game.
+ee_ea	beach	b.ea.ch	We built a sandcastle on the beach.
+ee_ea	leaf	l.ea.f	A leaf fell from the tree.
+ee_ea	eat	ea.t	We eat dinner at six.
+oa_ow	boat	b.oa.t	We rowed the boat across the lake.
+oa_ow	coat	c.oa.t	Wear your coat when it is cold.
+oa_ow	road	r.oa.d	Look both ways before you cross the road.
+oa_ow	soap	s.oa.p	Wash your hands with soap.
+oa_ow	goat	g.oa.t	The goat ate the grass.
+oa_ow	toast	t.oa.s.t	I had toast for breakfast.
+oa_ow	snow	s.n.ow	The snow fell all night.
+oa_ow	grow	g.r.ow	Plants need sun to grow.
+oa_ow	show	sh.ow	Show me your drawing.
+oa_ow	slow	s.l.ow	The turtle is slow.
+oa_ow	bowl	b.ow.l	Pour the soup into a bowl.
+oa_ow	blow	b.l.ow	Blow out the candles.
+igh_y	night	n.igh.t	The stars shine at night.
+igh_y	light	l.igh.t	Turn on the light.
+igh_y	high	h.igh	The bird flew high.
+igh_y	right	r.igh.t	Turn right at the corner.
+igh_y	sight	s.igh.t	The ship came into sight.
+igh_y	bright	b.r.igh.t	The sun is very bright.
+igh_y	my	m.y	This is my book.
+igh_y	fly	f.l.y	Birds can fly.
+igh_y	cry	c.r.y	The baby began to cry.
+igh_y	try	t.r.y	Try your best.
+igh_y	sky	s.k.y	The sky is blue.
+igh_y	dry	d.r.y	Hang the towel to dry.

@@ -1,0 +1,73 @@
+# skill	word	graphemes	sentence
+silent_letters	phone	ph.o.n.e	The phone is ringing.
+silent_letters	photo	ph.o.t.o	Take a photo of the sunset.
+silent_letters	graph	g.r.a.ph	We drew a graph in math.
+silent_letters	dolphin	d.o.l.ph.i.n	A dolphin jumped out of the water.
+silent_letters	knee	kn.ee	I scraped my knee.
+silent_letters	knot	kn.o.t	Tie a knot in the rope.
+silent_letters	know	kn.ow	I know the answer.
+silent_letters	knife	kn.i.f.e	Cut the bread with a knife.
+silent_letters	write	wr.i.t.e	Write your name on the line.
+silent_letters	wrap	wr.a.p	Wrap the present in paper.
+silent_letters	wrist	wr.i.s.t	She wears a watch on her wrist.
+silent_letters	wrong	wr.o.ng	I took a wrong turn.
+ending_ing_ed	jumping	j.u.m.p.i.ng	The kids are jumping on the bed.
+ending_ing_ed	playing	p.l.ay.i.ng	We are playing tag.
+ending_ing_ed	reading	r.ea.d.i.ng	She is reading a book.
+ending_ing_ed	helping	h.e.l.p.i.ng	Thank you for helping me.
+ending_ing_ed	singing	s.i.ng.i.ng	The birds are singing.
+ending_ing_ed	rested	r.e.s.t.e.d	We rested after the hike.
+ending_ing_ed	jumped	j.u.m.p.e.d	The cat jumped onto the table.
+ending_ing_ed	played	p.l.ay.e.d	We played outside all day.
+ending_ing_ed	wanted	w.a.n.t.e.d	I wanted a glass of water.
+ending_ing_ed	helped	h.e.l.p.e.d	She helped me with my homework.
+ending_ing_ed	filled	f.i.ll.e.d	He filled the cup with water.
+ending_ing_ed	asked	a.s.k.e.d	I asked a question.
+plural_s_es	cats	c.a.t.s	The cats are sleeping.
+plural_s_es	dogs	d.o.g.s	The dogs barked at the mailman.
+plural_s_es	cups	c.u.p.s	Put the cups on the table.
+plural_s_es	boxes	b.o.x.e.s	We packed the boxes.
+plural_s_es	wishes	w.i.sh.e.s	She made three wishes.
+plural_s_es	dishes	d.i.sh.e.s	I washed the dishes.
+plural_s_es	foxes	f.o.x.e.s	Two foxes ran across the field.
+plural_s_es	buses	b.u.s.e.s	The buses are yellow.
+plural_s_es	beaches	b.ea.ch.e.s	We visited two beaches.
+plural_s_es	benches	b.e.n.ch.e.s	There are benches in the park.
+plural_s_es	lunches	l.u.n.ch.e.s	We packed our lunches.
+plural_s_es	glasses	g.l.a.ss.e.s	He wears glasses to read.
+prefix_un_re	undo	u.n.d.o	Can you undo the knot?
+prefix_un_re	unlock	u.n.l.o.ck	Unlock the door with the key.
+prefix_un_re	unpack	u.n.p.a.ck	Unpack your bag when you get home.
+prefix_un_re	unfair	u.n.f.ai.r	That rule seems unfair.
+prefix_un_re	unhappy	u.n.h.a.pp.y	He was unhappy about the rain.
+prefix_un_re	untie	u.n.t.ie	Untie your shoes before you take them off.
+prefix_un_re	redo	r.e.d.o	Please redo the last question.
+prefix_un_re	reread	r.e.r.ea.d	Reread the story before the quiz.
+prefix_un_re	refill	r.e.f.i.ll	Refill your water bottle.
+prefix_un_re	replay	r.e.p.l.ay	Can we replay the game?
+prefix_un_re	return	r.e.t.ur.n	Return the book to the library.
+prefix_un_re	rewrite	r.e.wr.i.t.e	Rewrite the sentence neatly.
+tion_sion	action	a.c.tion	The movie was full of action.
+tion_sion	nation	n.a.tion	The nation celebrated its birthday.
+tion_sion	motion	m.o.tion	The rocking motion made me sleepy.
+tion_sion	station	s.t.a.tion	We waited at the train station.
+tion_sion	lotion	l.o.tion	Put lotion on your dry skin.
+tion_sion	fraction	f.r.a.c.tion	One half is a fraction.
+tion_sion	mention	m.e.n.tion	Did she mention the party?
+tion_sion	mission	m.i.s.sion	The astronauts went on a mission.
+tion_sion	tension	t.e.n.sion	You could feel the tension before the race.
+tion_sion	mansion	m.a.n.sion	They live in a huge mansion.
+tion_sion	session	s.e.s.sion	The music session lasted an hour.
+tion_sion	vision	v.i.sion	Glasses help my vision.
+two_syllable	rabbit	r.a.bb.i.t	The rabbit hopped across the grass.
+two_syllable	napkin	n.a.p.k.i.n	Put a napkin on your lap.
+two_syllable	sunset	s.u.n.s.e.t	The sunset was orange and pink.
+two_syllable	muffin	m.u.ff.i.n	I ate a blueberry muffin.
+two_syllable	picnic	p.i.c.n.i.c	We had a picnic in the park.
+two_syllable	insect	i.n.s.e.c.t	An ant is a small insect.
+two_syllable	basket	b.a.s.k.e.t	Put the apples in the basket.
+two_syllable	kitten	k.i.tt.e.n	The kitten chased the yarn.
+two_syllable	problem	p.r.o.b.l.e.m	We solved the problem together.
+two_syllable	magnet	m.a.g.n.e.t	The magnet stuck to the fridge.
+two_syllable	contest	c.o.n.t.e.s.t	She won the drawing contest.
+two_syllable	tennis	t.e.nn.i.s	We play tennis on Saturdays.
