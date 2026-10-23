@@ -19,6 +19,7 @@ const PATHS = {
   arrowRight: 'M5 12h14m-6-6l6 6-6 6',
   info: 'M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-11v6m0-9.5v.5',
   pause: 'M7 5h4v14H7zm6 0h4v14h-4z',
+  menu: 'M4 7h16M4 12h16M4 17h16',
 } as const
 
 export type IconName = keyof typeof PATHS

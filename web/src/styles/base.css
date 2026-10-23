@@ -165,6 +165,49 @@ canvas {
   color: var(--text-muted);
 }
 
+/* Wide screens: the menu wrapper is invisible to layout, so links and account
+   controls sit in the header row. Narrow screens: they fold behind "Menu". */
+.app-menu {
+  display: contents;
+}
+
+/* Scoped under the header so these beat the generic .btn display rules later in the file. */
+.app-header .menu-toggle {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .app-header .menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+    padding: 0 var(--space-4);
+  }
+
+  .app-menu {
+    display: none;
+    flex-basis: 100%;
+  }
+
+  .app-menu[data-open='true'] {
+    display: block;
+  }
+
+  .app-menu .main-nav ul {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .app-menu .main-nav a {
+    display: flex;
+    width: 100%;
+  }
+
+  .app-menu .header-user {
+    margin: var(--space-3) 0 var(--space-2);
+    justify-content: space-between;
+  }
+}
+
 main {
   max-width: var(--content-width);
   margin: 0 auto;
