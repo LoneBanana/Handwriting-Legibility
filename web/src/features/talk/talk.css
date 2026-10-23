@@ -1,0 +1,479 @@
+/* ------------------------------------------------------------------ layout */
+
+.talk-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-areas:
+    'stage panel'
+    'chat panel';
+  grid-template-rows: auto 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.talk-stage {
+  grid-area: stage;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.talk-panel {
+  grid-area: panel;
+}
+
+.talk-chat {
+  grid-area: chat;
+}
+
+@media (max-width: 900px) {
+  .talk-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'stage'
+      'panel'
+      'chat';
+    grid-template-rows: auto;
+  }
+}
+
+/* ------------------------------------------------------------------ stage */
+
+.talk-stage__screen {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.avatar-face {
+  display: block;
+  height: 94%;
+  width: auto;
+  max-width: 100%;
+}
+
+.talk-stage__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.talk-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-weight: 700;
+}
+
+/* A steady (not blinking) dot while the avatar speaks. */
+.talk-status[data-speaking='true']::before {
+  content: '';
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: var(--success);
+  flex-shrink: 0;
+}
+
+.session-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.session-info .badge {
+  white-space: normal;
+}
+
+/* ------------------------------------------------------------ video avatar */
+
+.video-avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-avatar video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+.video-avatar__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  text-align: center;
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.video-avatar__overlay .notice {
+  text-align: left;
+  max-width: 28rem;
+}
+
+.video-avatar__sound {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-3);
+  transform: translateX(-50%);
+}
+
+/* ---------------------------------------------------------- expression panel */
+
+.face-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.face-diagram[data-dimmed='true'] {
+  opacity: 0.55;
+}
+
+.face-diagram__outline {
+  fill: var(--surface-2);
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+}
+
+.face-diagram__base {
+  fill: var(--surface);
+  stroke: var(--text-muted);
+  stroke-width: 1.2;
+}
+
+.face-diagram__base-stroke {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.face-diagram__glow {
+  fill: var(--accent);
+  stroke: var(--accent-strong);
+  stroke-width: 1.5;
+  transition: opacity 120ms linear;
+}
+
+.face-diagram__glow-stroke {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+  transition: opacity 120ms linear;
+}
+
+.face-diagram__leader {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.face-diagram text {
+  fill: var(--text-muted);
+  font-size: 13px;
+}
+
+.face-diagram__region[data-active='true'] text {
+  fill: var(--text);
+  font-weight: 700;
+}
+
+.face-diagram__region[data-active='true'] .face-diagram__leader {
+  stroke: var(--accent-strong);
+  stroke-width: 1.5;
+}
+
+.feeling {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-3);
+}
+
+.feeling > :last-child {
+  margin-bottom: 0;
+}
+
+.feeling__heading {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.feeling__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.feeling__name .badge {
+  font-weight: 600;
+}
+
+.feeling__match {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--success);
+  font-weight: 700;
+}
+
+.au-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.au-list[data-dimmed='true'] {
+  opacity: 0.6;
+}
+
+.au-list__row {
+  display: grid;
+  grid-template-columns: 4.6em minmax(0, 1fr) auto;
+  grid-template-areas:
+    'id meaning value'
+    'track track track';
+  column-gap: var(--space-2);
+  row-gap: 2px;
+  align-items: baseline;
+  font-size: 0.9rem;
+}
+
+.au-list__id {
+  grid-area: id;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.au-list__meaning {
+  grid-area: meaning;
+}
+
+.au-list__side {
+  color: var(--text-muted);
+}
+
+.au-list__value {
+  grid-area: value;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.au-list__row[data-active='true'] .au-list__meaning {
+  font-weight: 700;
+}
+
+/* Meter-style bars: a lighter step of the accent as the track, the accent as the fill. */
+.au-list__track {
+  grid-area: track;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+.au-list__fill {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  background: var(--accent);
+  transition: width 120ms linear;
+}
+
+/* ------------------------------------------------------------ conversation */
+
+.ask__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ask__row input {
+  flex: 1 1 16rem;
+  width: auto;
+  font-size: 1.1rem;
+}
+
+.starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.starter {
+  min-height: var(--tap);
+  padding: var(--space-1) var(--space-4);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.starter:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.starter:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.turn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.turn__who {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.turn__question {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.turn__answer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.turn__answer > p {
+  margin: 0;
+}
+
+.captions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 1.2rem;
+  border-radius: var(--radius-sm);
+}
+
+.captions__line {
+  margin: 0;
+  max-width: 65ch;
+}
+
+/* The sentence being spoken right now. */
+.captions__line[data-current='true'] {
+  background: var(--focus-mark);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 4px var(--focus-mark);
+}
+
+.talk-history summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.talk-history__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.talk-history__list > .turn + .turn {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+
+/* ----------------------------------------------------- comprehension check */
+
+.check {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+
+.check__question legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.check__results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.check__prompt {
+  margin: 0 0 var(--space-1);
+  font-weight: 700;
+}
+
+.result-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-1);
+}
+
+.result-line svg {
+  flex-shrink: 0;
+  margin-top: 0.2em;
+}
+
+.check__result[data-correct='true'] .result-line svg {
+  color: var(--success);
+}
+
+.check__result[data-correct='false'] .result-line svg {
+  color: var(--danger);
+}
+
+/* ---------------------------------------------------------------- notices */
+
+.talk-notices {
+  margin-bottom: var(--space-5);
+}
+
+.talk-notices > p,
+.talk-voice-notice {
+  margin: 0;
+}
+
+.talk-voice-notice {
+  margin-bottom: var(--space-4);
+}

@@ -1,0 +1,99 @@
+# skill	word	graphemes	sentence
+short_a	cat	c.a.t	The cat sat on the mat.
+short_a	hat	h.a.t	I put on my red hat.
+short_a	map	m.a.p	We looked at the map.
+short_a	bag	b.a.g	My lunch is in the bag.
+short_a	jam	j.a.m	I like jam on toast.
+short_a	van	v.a.n	The van is parked outside.
+short_a	dad	d.a.d	My dad can cook.
+short_a	pan	p.a.n	Eggs sizzle in the pan.
+short_a	sad	s.a.d	The lost puppy looked sad.
+short_a	ham	h.a.m	She made a ham sandwich.
+short_a	rat	r.a.t	A rat ran under the shed.
+short_a	cap	c.a.p	He wore a blue cap.
+short_a	fan	f.a.n	Turn on the fan, please.
+short_a	lap	l.a.p	The cat sat on my lap.
+short_i	pig	p.i.g	The pig rolled in the mud.
+short_i	sit	s.i.t	Please sit next to me.
+short_i	win	w.i.n	I hope our team will win.
+short_i	big	b.i.g	That is a big dog.
+short_i	dig	d.i.g	Dogs like to dig holes.
+short_i	fin	f.i.n	The fish has a fin on its back.
+short_i	hid	h.i.d	The cat hid under the bed.
+short_i	lip	l.i.p	I bit my lip by mistake.
+short_i	mix	m.i.x	Mix the paint with water.
+short_i	pin	p.i.n	Use a pin to hold the paper.
+short_i	tip	t.i.p	The tip of the pencil broke.
+short_i	zip	z.i.p	Zip up your coat before you go out.
+short_o	dog	d.o.g	The dog wagged its tail.
+short_o	hot	h.o.t	The soup is too hot.
+short_o	pot	p.o.t	The plant grows in a pot.
+short_o	log	l.o.g	A frog sat on the log.
+short_o	box	b.o.x	Put the toys in the box.
+short_o	fox	f.o.x	The fox ran into the woods.
+short_o	mop	m.o.p	Use the mop to clean the floor.
+short_o	top	t.o.p	Climb to the top of the hill.
+short_o	dot	d.o.t	Put a dot over the letter i.
+short_o	hop	h.o.p	Frogs can hop very far.
+short_o	job	j.o.b	You did a great job.
+short_o	cot	c.o.t	The baby sleeps in a cot.
+short_u	sun	s.u.n	The sun is bright today.
+short_u	bug	b.u.g	A bug landed on my arm.
+short_u	cup	c.u.p	Pour the milk into the cup.
+short_u	mud	m.u.d	My boots are covered in mud.
+short_u	run	r.u.n	I can run very fast.
+short_u	bus	b.u.s	We ride the bus to school.
+short_u	hut	h.u.t	They slept in a small hut.
+short_u	nut	n.u.t	A squirrel ate a nut.
+short_u	rug	r.u.g	The rug is soft and warm.
+short_u	tub	t.u.b	The toy duck floats in the tub.
+short_u	gum	g.u.m	Please do not chew gum in class.
+short_u	fun	f.u.n	The party was fun.
+short_e	bed	b.e.d	It is time for bed.
+short_e	hen	h.e.n	The hen laid an egg.
+short_e	leg	l.e.g	I hurt my leg playing soccer.
+short_e	net	n.e.t	He caught a fish with a net.
+short_e	pet	p.e.t	Do you have a pet?
+short_e	red	r.e.d	She has a red bike.
+short_e	ten	t.e.n	I can count to ten.
+short_e	web	w.e.b	A spider spun a web.
+short_e	yes	y.e.s	She said yes to the plan.
+short_e	jet	j.e.t	The jet flew over the city.
+short_e	wet	w.e.t	The grass is wet after the rain.
+short_e	men	m.e.n	Two men carried the table.
+digraph_sh	ship	sh.i.p	The ship sailed across the sea.
+digraph_sh	shop	sh.o.p	We went to the shop for bread.
+digraph_sh	fish	f.i.sh	The fish swam in the pond.
+digraph_sh	dish	d.i.sh	Put the dish in the sink.
+digraph_sh	wish	w.i.sh	Make a wish and blow out the candles.
+digraph_sh	shed	sh.e.d	The rake is in the shed.
+digraph_sh	shut	sh.u.t	Please shut the door.
+digraph_sh	cash	c.a.sh	He paid for the book with cash.
+digraph_sh	shin	sh.i.n	I bumped my shin on the chair.
+digraph_sh	rush	r.u.sh	There is no need to rush.
+digraph_sh	mash	m.a.sh	Mash the potatoes with a fork.
+digraph_sh	shot	sh.o.t	She took a shot at the goal.
+digraph_ch	chip	ch.i.p	There is a chip in the cup.
+digraph_ch	chin	ch.i.n	He rubbed his chin and thought.
+digraph_ch	chop	ch.o.p	Chop the carrots into small pieces.
+digraph_ch	much	m.u.ch	Thank you very much.
+digraph_ch	rich	r.i.ch	The cake was rich and sweet.
+digraph_ch	such	s.u.ch	It was such a long day.
+digraph_ch	chat	ch.a.t	Let us chat after class.
+digraph_ch	inch	i.n.ch	The bug was one inch long.
+digraph_ch	bunch	b.u.n.ch	She picked a bunch of grapes.
+digraph_ch	lunch	l.u.n.ch	We eat lunch at noon.
+digraph_ch	bench	b.e.n.ch	We sat on the bench in the park.
+digraph_ch	champ	ch.a.m.p	The boxer is the champ this year.
+digraph_th	thin	th.i.n	The ice is too thin to walk on.
+digraph_th	this	th.i.s	This is my favorite book.
+digraph_th	that	th.a.t	That bird is very loud.
+digraph_th	then	th.e.n	First we eat, then we play.
+digraph_th	them	th.e.m	I will help them carry the boxes.
+digraph_th	bath	b.a.th	The baby had a warm bath.
+digraph_th	math	m.a.th	We have math after lunch.
+digraph_th	with	w.i.th	Come with me to the park.
+digraph_th	moth	m.o.th	A moth flew near the lamp.
+digraph_th	path	p.a.th	Follow the path to the lake.
+digraph_th	thud	th.u.d	The book fell with a thud.
+digraph_th	cloth	c.l.o.th	Wipe the table with a cloth.

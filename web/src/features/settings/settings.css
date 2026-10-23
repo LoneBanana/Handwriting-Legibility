@@ -1,0 +1,100 @@
+.settings-form {
+  margin-bottom: var(--space-5);
+}
+
+.settings-preview {
+  padding: var(--space-4);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.settings-preview p {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.settings-preview p + p {
+  margin-top: var(--space-2);
+}
+
+.font-option {
+  font-size: 1.05rem;
+}
+
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.range-row input {
+  flex: 1;
+}
+
+.range-row output {
+  min-width: 4.5ch;
+  text-align: right;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.range-row__small {
+  font-size: 0.85rem;
+}
+
+.range-row__large {
+  font-size: 1.4rem;
+}
+
+.theme-swatch {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4em;
+  height: 1.7em;
+  border: 2px solid;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.voice-select {
+  flex: 1 1 18rem;
+  width: auto;
+}
+
+/* Stays in view while there are changes to save. */
+.settings-savebar {
+  position: sticky;
+  bottom: var(--space-3);
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.settings-savebar[data-dirty='true'] {
+  border-color: var(--accent);
+}
+
+.settings-savebar p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.samples-store {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+
+.danger-zone {
+  border-color: var(--danger);
+}

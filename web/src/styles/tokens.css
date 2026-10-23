@@ -1,0 +1,183 @@
+/* Design tokens. Themes and fonts are switched with data attributes on <html>
+   (see src/lib/settings.ts); size and spacing come from user settings. */
+
+:root {
+  --font-default: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: var(--font-default);
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-scale: 1;
+  --line-spacing: 1.6;
+  --letter-spacing: 0.01em;
+  --word-spacing: 0.04em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --tap: 44px;
+  --content-width: 1120px;
+  --transition: 160ms ease;
+
+  /* light (default) */
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #eef1ee;
+  --text: #1d2a2e;
+  --text-muted: #4f5f66;
+  --border: #d5dbd6;
+  --accent: #2f6f6a;
+  --accent-strong: #24524f;
+  --accent-soft: #dcece9;
+  --accent-contrast: #ffffff;
+  --focus: #c2410c;
+  --success: #24724a;
+  --success-soft: #dff1e6;
+  --warning: #8a5a00;
+  --warning-soft: #fbefd5;
+  --danger: #b3261e;
+  --danger-soft: #fbe3e1;
+  --shadow: 0 1px 2px rgb(20 40 40 / 0.06), 0 4px 16px rgb(20 40 40 / 0.06);
+
+  /* grapheme colours for phonics display */
+  --g1: #1f5fa8;
+  --g2: #a33a24;
+  --g3: #26743b;
+  --g4: #7b3ea3;
+  --focus-mark: #fff1b8;
+
+  /* face drawing */
+  --skin: #f1c9a5;
+  --skin-shade: #dba882;
+  --feature: #3b2a22;
+  --lip: #b65a5a;
+  --mouth-inside: #5a1f22;
+  --cheek: #e98a7d;
+  --iris: #4b6b8a;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #121819;
+  --surface: #1b2325;
+  --surface-2: #232d30;
+  --text: #e8eef0;
+  --text-muted: #a9b8bd;
+  --border: #34433f;
+  --accent: #7cc4bd;
+  --accent-strong: #a6dcd6;
+  --accent-soft: #1f3a37;
+  --accent-contrast: #0b1d1b;
+  --focus: #ffb86b;
+  --success: #7fd4a1;
+  --success-soft: #173326;
+  --warning: #f0c36a;
+  --warning-soft: #3a2f14;
+  --danger: #ff9a92;
+  --danger-soft: #3d1c1a;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --g1: #8ab8ff;
+  --g2: #ff9f8a;
+  --g3: #8fdc9f;
+  --g4: #d3a6ff;
+  --focus-mark: #4a4020;
+  --skin: #d9a77f;
+  --skin-shade: #b9845d;
+  --lip: #b65a5a;
+  color-scheme: dark;
+}
+
+:root[data-theme='cream'] {
+  --bg: #f7efdf;
+  --surface: #fffaf0;
+  --surface-2: #f1e6cf;
+  --text: #2a241f;
+  --text-muted: #62574b;
+  --border: #e0d1b6;
+  --accent: #2f6f6a;
+  --accent-strong: #24524f;
+  --accent-soft: #e3ecdf;
+  --focus-mark: #ffe58a;
+}
+
+:root[data-theme='high-contrast'] {
+  --bg: #000000;
+  --surface: #000000;
+  --surface-2: #111111;
+  --text: #ffffff;
+  --text-muted: #ffffff;
+  --border: #ffffff;
+  --accent: #ffff00;
+  --accent-strong: #ffff00;
+  --accent-soft: #333300;
+  --accent-contrast: #000000;
+  --focus: #00ffff;
+  --success: #00ff7f;
+  --success-soft: #002b16;
+  --warning: #ffd700;
+  --warning-soft: #2b2400;
+  --danger: #ff6b6b;
+  --danger-soft: #2b0000;
+  --shadow: none;
+  --g1: #ffff00;
+  --g2: #00ffff;
+  --g3: #ffffff;
+  --g4: #ff9bf5;
+  --focus-mark: #333300;
+  --skin: #ffe0bd;
+  --skin-shade: #ffffff;
+  --feature: #000000;
+  color-scheme: dark;
+}
+
+:root[data-font='lexend'] {
+  --font-body: 'Lexend', system-ui, sans-serif;
+}
+
+:root[data-font='atkinson'] {
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+}
+
+:root[data-font='opendyslexic'] {
+  --font-body: 'OpenDyslexic', system-ui, sans-serif;
+  --word-spacing: 0.12em;
+}
+
+:root[data-font='default'] {
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+:root[data-reduce-motion='true'] {
+  --transition: 0ms linear;
+}
+
+:root[data-reduce-motion='true'] *,
+:root[data-reduce-motion='true'] *::before,
+:root[data-reduce-motion='true'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition: 0ms linear;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,194 @@
+.progress-module + .progress-module {
+  margin-top: var(--space-6);
+}
+
+.progress-module__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.progress-module__head h2 {
+  margin: 0;
+}
+
+.progress-module__tracks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ------------------------------------------------------------- stat tiles */
+
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.stat-tile__label {
+  font-weight: 700;
+}
+
+.stat-tile__value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stat-tile__note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ------------------------------------------------------------- track card */
+
+.track-card h4 {
+  font-size: 1rem;
+  margin: 0 0 var(--space-2);
+}
+
+.track-card__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.facts > div {
+  display: grid;
+  gap: 0;
+}
+
+.facts dt {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.facts dd {
+  margin: 0;
+}
+
+/* ----------------------------------------------------------- weekly chart */
+
+.weekly-chart {
+  margin: 0;
+}
+
+.weekly-chart__title {
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.weekly-chart__plot {
+  position: relative;
+  border-radius: var(--radius-sm);
+}
+
+.weekly-chart__plot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.weekly-chart__grid {
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-opacity: 0.6;
+}
+
+.weekly-chart__baseline {
+  stroke: var(--text-muted);
+  stroke-width: 1;
+}
+
+.weekly-chart__tick {
+  fill: var(--text-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.weekly-chart__bar {
+  fill: var(--accent);
+}
+
+.weekly-chart__bar[data-active='true'] {
+  fill: var(--accent-strong);
+  stroke: var(--focus);
+  stroke-width: 2;
+}
+
+/* The goal is a threshold, so it is dashed to stand apart from the solid grid. */
+.weekly-chart__goal line {
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+
+.weekly-chart__goal text {
+  fill: var(--text-muted);
+  font-size: 11px;
+}
+
+.weekly-chart__tooltip {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.weekly-chart__tooltip strong {
+  font-size: 1rem;
+}
+
+.weekly-chart__table {
+  margin-top: var(--space-2);
+}
+
+.weekly-chart__table summary {
+  cursor: pointer;
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.weekly-chart__table td,
+.weekly-chart__table th {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,34 @@
+# Smoke test: trains for a few minutes on a laptop CPU/GPU with no downloads.
+# Synthetic lines only (system handwriting fonts + the built-in corpus).
+#   legible-train --config configs/htr/tiny.yaml
+model:
+  cnn_channels: [16, 32, 64, 96]
+  cnn_depths: [1, 1, 1, 1]
+  d_model: 96
+  n_heads: 4
+  enc_layers: 2
+  dec_layers: 1
+  drop_path: 0.0
+  max_decode_len: 96
+
+data:
+  train:
+    - {type: synthetic, name: synth, size: 4000, irregularity: 0.5}
+  val:
+    - {type: synthetic, name: synth_val, size: 64, irregularity: 0.5}
+  max_width: 1024
+  max_text_len: 64
+  batch_size: 16
+  num_workers: 2
+
+train:
+  output_dir: runs/htr-tiny
+  max_steps: 300
+  lr: 1.0e-3
+  min_lr: 1.0e-4
+  warmup_steps: 50
+  log_every: 20
+  eval_every: 100
+  save_every: 100
+  keep_last: 2
+  ema_decay: 0.99

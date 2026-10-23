@@ -1,0 +1,94 @@
+# skill	word	graphemes	sentence
+digraph_wh	when	wh.e.n	When does the movie start?
+digraph_wh	what	wh.a.t	What is your name?
+digraph_wh	which	wh.i.ch	Which bag is yours?
+digraph_wh	whip	wh.i.p	Whip the cream until it is thick.
+digraph_wh	whiz	wh.i.z	She is a whiz at puzzles.
+digraph_wh	whisk	wh.i.s.k	Whisk the eggs in a bowl.
+digraph_wh	whim	wh.i.m	We went to the beach on a whim.
+digraph_wh	whiff	wh.i.ff	I caught a whiff of fresh bread.
+digraph_wh	whack	wh.a.ck	He gave the ball a whack.
+ck	duck	d.u.ck	A duck swam across the pond.
+ck	back	b.a.ck	Put the book back on the shelf.
+ck	sock	s.o.ck	I lost one sock.
+ck	kick	k.i.ck	Kick the ball to me.
+ck	neck	n.e.ck	The giraffe has a long neck.
+ck	pack	p.a.ck	Pack your bag for the trip.
+ck	rock	r.o.ck	He sat on a big rock.
+ck	sick	s.i.ck	I stayed home because I was sick.
+ck	luck	l.u.ck	Good luck on your test!
+ck	deck	d.e.ck	We sat on the deck in the sun.
+ck	lock	l.o.ck	Lock the door when you leave.
+ck	tick	t.i.ck	The clock goes tick, tock.
+ng_nk	ring	r.i.ng	She wears a gold ring.
+ng_nk	sing	s.i.ng	We like to sing songs.
+ng_nk	king	k.i.ng	The king wore a crown.
+ng_nk	long	l.o.ng	The snake was very long.
+ng_nk	song	s.o.ng	This song makes me happy.
+ng_nk	hang	h.a.ng	Hang your coat on the hook.
+ng_nk	pink	p.i.nk	She painted her room pink.
+ng_nk	sink	s.i.nk	Wash your hands at the sink.
+ng_nk	bank	b.a.nk	I put my money in the bank.
+ng_nk	junk	j.u.nk	The garage is full of junk.
+ng_nk	wink	w.i.nk	He gave me a wink.
+ng_nk	honk	h.o.nk	The car went honk, honk!
+blends_l	black	b.l.a.ck	The cat has black fur.
+blends_l	clap	c.l.a.p	Clap your hands to the beat.
+blends_l	flag	f.l.a.g	The flag waved in the wind.
+blends_l	glad	g.l.a.d	I am glad you came.
+blends_l	plum	p.l.u.m	A plum is a sweet fruit.
+blends_l	slip	s.l.i.p	Be careful not to slip on the ice.
+blends_l	blob	b.l.o.b	A blob of paint fell on the floor.
+blends_l	clip	c.l.i.p	Clip the papers together.
+blends_l	flat	f.l.a.t	The tire on my bike is flat.
+blends_l	glum	g.l.u.m	He looked glum after the game.
+blends_l	plan	p.l.a.n	We made a plan for the weekend.
+blends_l	sled	s.l.e.d	We rode the sled down the hill.
+blends_r	brag	b.r.a.g	It is not kind to brag.
+blends_r	crab	c.r.a.b	A crab walked along the sand.
+blends_r	drum	d.r.u.m	He plays the drum in a band.
+blends_r	frog	f.r.o.g	The frog jumped into the pond.
+blends_r	grin	g.r.i.n	She had a big grin on her face.
+blends_r	prop	p.r.o.p	Prop the door open with a box.
+blends_r	trip	t.r.i.p	We took a trip to the zoo.
+blends_r	brim	b.r.i.m	The cup is full to the brim.
+blends_r	crib	c.r.i.b	The baby sleeps in a crib.
+blends_r	drip	d.r.i.p	The tap began to drip.
+blends_r	grab	g.r.a.b	Grab a coat before you go.
+blends_r	trap	t.r.a.p	The mouse ran into the trap.
+blends_s	scan	s.c.a.n	Scan the page for your name.
+blends_s	skip	s.k.i.p	The children skip down the road.
+blends_s	smog	s.m.o.g	The city was gray with smog.
+blends_s	snap	s.n.a.p	I heard a twig snap.
+blends_s	spin	s.p.i.n	Watch the top spin around.
+blends_s	stop	s.t.o.p	Stop at the red light.
+blends_s	swim	s.w.i.m	We swim in the lake in summer.
+blends_s	skin	s.k.i.n	Put sun cream on your skin.
+blends_s	snug	s.n.u.g	The kitten is snug in its bed.
+blends_s	spot	s.p.o.t	The dog has a black spot.
+blends_s	step	s.t.e.p	Watch your step on the stairs.
+blends_s	swam	s.w.a.m	The ducks swam in a line.
+end_blends	hand	h.a.n.d	Raise your hand to ask a question.
+end_blends	tent	t.e.n.t	We slept in a tent.
+end_blends	jump	j.u.m.p	How high can you jump?
+end_blends	fast	f.a.s.t	The rabbit is very fast.
+end_blends	gift	g.i.f.t	Thank you for the gift.
+end_blends	belt	b.e.l.t	He wore a brown belt.
+end_blends	pond	p.o.n.d	Ducks swim in the pond.
+end_blends	mint	m.i.n.t	This candy tastes like mint.
+end_blends	lamp	l.a.m.p	Turn on the lamp, please.
+end_blends	nest	n.e.s.t	The bird built a nest.
+end_blends	raft	r.a.f.t	We floated down the river on a raft.
+end_blends	melt	m.e.l.t	The snow will melt in the sun.
+floss	off	o.ff	Turn off the light.
+floss	puff	p.u.ff	The dragon blew a puff of smoke.
+floss	bell	b.e.ll	The bell rang at three o'clock.
+floss	hill	h.i.ll	We ran down the hill.
+floss	doll	d.o.ll	She gave her doll a name.
+floss	fuss	f.u.ss	Please do not make a fuss.
+floss	kiss	k.i.ss	Give grandma a kiss.
+floss	mess	m.e.ss	Clean up this mess, please.
+floss	cliff	c.l.i.ff	Stay away from the edge of the cliff.
+floss	spell	s.p.e.ll	Can you spell your name?
+floss	grass	g.r.a.ss	The grass is green after the rain.
+floss	stuff	s.t.u.ff	Put your stuff in your locker.

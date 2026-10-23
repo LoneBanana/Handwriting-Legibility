@@ -1,0 +1,97 @@
+# skill	word	graphemes	sentence
+ar	car	c.ar	We drove the car to town.
+ar	star	s.t.ar	I saw a shooting star.
+ar	farm	f.ar.m	Cows live on the farm.
+ar	park	p.ar.k	We played in the park.
+ar	dark	d.ar.k	It gets dark early in winter.
+ar	card	c.ar.d	I made a birthday card.
+ar	shark	sh.ar.k	A shark swam near the boat.
+ar	yard	y.ar.d	The dog ran around the yard.
+ar	jar	j.ar	The cookies are in the jar.
+ar	barn	b.ar.n	The horse sleeps in the barn.
+ar	art	ar.t	We painted in art class.
+ar	smart	s.m.ar.t	That was a smart idea.
+or	fork	f.or.k	Eat your salad with a fork.
+or	corn	c.or.n	We ate corn on the cob.
+or	sport	s.p.or.t	Soccer is my favorite sport.
+or	storm	s.t.or.m	The storm knocked down a tree.
+or	born	b.or.n	The puppy was born in May.
+or	north	n.or.th	Birds fly north in spring.
+or	short	sh.or.t	The movie was short.
+or	torn	t.or.n	My paper is torn.
+or	cord	c.or.d	Plug in the cord.
+or	porch	p.or.ch	We sat on the porch.
+or	form	f.or.m	Fill in the form with your name.
+or	horn	h.or.n	The bus driver honked the horn.
+er_ir_ur	her	h.er	I gave her a book.
+er_ir_ur	fern	f.er.n	A fern grows in the shade.
+er_ir_ur	term	t.er.m	The school term starts soon.
+er_ir_ur	bird	b.ir.d	A bird sang outside my window.
+er_ir_ur	girl	g.ir.l	The girl rode her bike.
+er_ir_ur	first	f.ir.s.t	She was first in line.
+er_ir_ur	shirt	sh.ir.t	He wore a blue shirt.
+er_ir_ur	fur	f.ur	The cat has soft fur.
+er_ir_ur	turn	t.ur.n	It is your turn to play.
+er_ir_ur	burn	b.ur.n	Do not burn the toast.
+er_ir_ur	hurt	h.ur.t	I hurt my knee.
+er_ir_ur	church	ch.ur.ch	The church bell rang.
+oi_oy	coin	c.oi.n	I found a coin on the floor.
+oi_oy	oil	oi.l	Fry the eggs in a little oil.
+oi_oy	join	j.oi.n	Come and join our game.
+oi_oy	point	p.oi.n.t	The pencil has a sharp point.
+oi_oy	soil	s.oi.l	Plant the seeds in the soil.
+oi_oy	boil	b.oi.l	Boil the water for tea.
+oi_oy	foil	f.oi.l	Wrap the sandwich in foil.
+oi_oy	boy	b.oy	The boy kicked the ball.
+oi_oy	toy	t.oy	The baby has a new toy.
+oi_oy	joy	j.oy	She jumped for joy.
+oi_oy	enjoy	e.n.j.oy	I enjoy reading comics.
+oi_oy	annoy	a.nn.oy	Loud music can annoy the neighbors.
+ou_ow	cloud	c.l.ou.d	A cloud covered the sun.
+ou_ow	out	ou.t	Let the dog out.
+ou_ow	house	h.ou.s.e	Our house has a red door.
+ou_ow	mouth	m.ou.th	Open your mouth wide.
+ou_ow	shout	sh.ou.t	Please do not shout.
+ou_ow	round	r.ou.n.d	A ball is round.
+ou_ow	cow	c.ow	The cow ate the hay.
+ou_ow	now	n.ow	Let us go now.
+ou_ow	town	t.ow.n	We walked into town.
+ou_ow	down	d.ow.n	Sit down, please.
+ou_ow	brown	b.r.ow.n	The bear has brown fur.
+ou_ow	owl	ow.l	An owl hooted at night.
+oo	moon	m.oo.n	The moon is full tonight.
+oo	food	f.oo.d	We bought food for the trip.
+oo	room	r.oo.m	My room is upstairs.
+oo	spoon	s.p.oo.n	Stir the soup with a spoon.
+oo	pool	p.oo.l	We swam in the pool.
+oo	zoo	z.oo	We saw lions at the zoo.
+oo	book	b.oo.k	This book is about space.
+oo	look	l.oo.k	Look at the rainbow.
+oo	foot	f.oo.t	I hurt my foot.
+oo	good	g.oo.d	That was a good game.
+oo	wood	w.oo.d	The table is made of wood.
+oo	cook	c.oo.k	Dad likes to cook pasta.
+soft_c_g	city	c.i.t.y	We live in a big city.
+soft_c_g	cell	c.e.ll	A cell is very small.
+soft_c_g	face	f.a.c.e	She drew a happy face.
+soft_c_g	ice	i.c.e	The ice is slippery.
+soft_c_g	rice	r.i.c.e	We had rice for dinner.
+soft_c_g	mice	m.i.c.e	Two mice ran across the floor.
+soft_c_g	gem	g.e.m	She found a shiny gem.
+soft_c_g	giant	g.i.a.n.t	The giant was very tall.
+soft_c_g	page	p.a.g.e	Turn to the next page.
+soft_c_g	cage	c.a.g.e	The bird sang in its cage.
+soft_c_g	large	l.ar.g.e	That is a large box.
+soft_c_g	gym	g.y.m	We play games in the gym.
+tch_dge	catch	c.a.tch	Can you catch the ball?
+tch_dge	match	m.a.tch	We won the match.
+tch_dge	itch	i.tch	This sweater makes me itch.
+tch_dge	fetch	f.e.tch	The dog likes to fetch sticks.
+tch_dge	patch	p.a.tch	Mom sewed a patch on my jeans.
+tch_dge	watch	w.a.tch	Let us watch a movie.
+tch_dge	bridge	b.r.i.dge	We walked across the bridge.
+tch_dge	badge	b.a.dge	The officer showed her badge.
+tch_dge	edge	e.dge	Do not stand near the edge.
+tch_dge	fudge	f.u.dge	We made chocolate fudge.
+tch_dge	judge	j.u.dge	The judge listened carefully.
+tch_dge	ledge	l.e.dge	A bird sat on the ledge.

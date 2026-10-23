@@ -1,0 +1,49 @@
+# ~74M-parameter model for multi-node training (scripts/slurm/train_htr.sbatch).
+# Per-GPU batch sizes below suit 40-80 GB GPUs; the effective batch is
+# batch_size x grad_accum x number of GPUs.
+model:
+  img_height: 64
+  cnn_channels: [64, 128, 256, 384]
+  cnn_depths: [2, 2, 6, 2]
+  d_model: 512
+  n_heads: 8
+  enc_layers: 12
+  dec_layers: 6
+  dropout: 0.1
+  drop_path: 0.15
+  ctc_weight: 0.3
+  label_smoothing: 0.1
+  max_decode_len: 320
+  gradient_checkpointing: false
+
+data:
+  train:
+    - {type: synthetic, name: synth, weight: 2.0, fonts_dir: assets/fonts, corpus: data/corpus/sentences.txt,
+       size: 5000000, irregularity: 0.6, ramp_epochs: 3}
+    - {type: manifest, name: iam, weight: 1.0, path: data/iam/train.jsonl}
+    - {type: manifest, name: gnhk, weight: 0.5, path: data/gnhk/train.jsonl}
+  val:
+    - {type: manifest, name: iam_val, path: data/iam/validation.jsonl}
+  max_width: 2560
+  max_text_len: 300
+  batch_size: 48
+  max_pixels: 4000000
+  samples_per_epoch: 2000000
+  num_workers: 12
+  augment:
+    strength: 0.6
+
+train:
+  output_dir: runs/htr-large
+  max_steps: 150000
+  lr: 8.0e-4
+  min_lr: 2.0e-5
+  warmup_steps: 5000
+  weight_decay: 0.05
+  grad_clip: 1.0
+  precision: auto              # bf16 on Ampere/Hopper
+  compile: true
+  eval_every: 2500
+  save_every: 1000
+  keep_last: 3
+  max_runtime_minutes: 0       # the sbatch script sets this from the job's time limit

@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+
+# Training artifacts
+runs/
+checkpoints/
+outputs/
+logs/
+wandb/
+*.pt
+*.pth
+*.onnx
+!tests/fixtures/*.pt
+
+# Data (never commit datasets or user uploads)
+/data/
+assets/fonts/
+uploads/
+*.sqlite3
+*.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+.dev.env
+
+# Node / web
+node_modules/
+web/dist/
+web/public/mediapipe/
+*.tsbuildinfo
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
