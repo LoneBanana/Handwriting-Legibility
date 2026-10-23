@@ -1,0 +1,17 @@
+.git
+.venv
+venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+web/node_modules
+web/dist
+web/public/mediapipe
+data
+runs
+checkpoints
+logs
+assets/fonts
+.env
+.env.*
+!.env.example
