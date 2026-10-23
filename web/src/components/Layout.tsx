@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router'
 import { useAuth } from '../auth/context'
+import { Icon } from './Icon'
 
 const NAV = [
   { to: '/', label: 'Home', end: true },
@@ -33,6 +34,16 @@ export function Layout() {
   const location = useLocation()
   const mainRef = useRef<HTMLElement>(null)
   const firstRender = useRef(true)
+  // On narrow screens the links fold behind a Menu button; wide screens always show them.
+  const [menuOpen, setMenuOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+
+  const closeMenuOnEscape = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && menuOpen) {
+      setMenuOpen(false)
+      toggleRef.current?.focus()
+    }
+  }
 
   // Move focus to the page content after navigation so screen-reader and
   // keyboard users start at the new page instead of the old link, and show the
@@ -51,31 +62,44 @@ export function Layout() {
       <a className="skip-link" href="#main">
         Skip to main content
       </a>
-      <header className="app-header">
+      <header className="app-header" onKeyDown={closeMenuOnEscape}>
         <div className="app-header__inner">
-          <NavLink to="/" className="brand" aria-label="Legible home">
+          <NavLink to="/" className="brand" aria-label="Legible home" onClick={() => setMenuOpen(false)}>
             <BrandMark />
             <span>Legible</span>
           </NavLink>
-          <nav className="main-nav" aria-label="Main">
-            <ul>
-              {NAV.map((item) => (
-                <li key={item.to}>
-                  <NavLink to={item.to} end={item.end}>
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          {user && (
-            <div className="header-user">
-              <span className="small">Hi, {user.display_name}</span>
-              <button type="button" className="btn btn--ghost" onClick={logout}>
-                Log out
-              </button>
-            </div>
-          )}
+          <button
+            ref={toggleRef}
+            type="button"
+            className="btn btn--ghost menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="app-menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <Icon name={menuOpen ? 'cross' : 'menu'} />
+            Menu
+          </button>
+          <div id="app-menu" className="app-menu" data-open={menuOpen}>
+            <nav className="main-nav" aria-label="Main">
+              <ul>
+                {NAV.map((item) => (
+                  <li key={item.to}>
+                    <NavLink to={item.to} end={item.end} onClick={() => setMenuOpen(false)}>
+                      {item.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            {user && (
+              <div className="header-user">
+                <span className="small">Hi, {user.display_name}</span>
+                <button type="button" className="btn btn--ghost" onClick={logout}>
+                  Log out
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </header>
       <main id="main" ref={mainRef} tabIndex={-1}>
