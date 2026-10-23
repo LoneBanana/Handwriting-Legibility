@@ -112,7 +112,16 @@ function CorrectionBox({ result }: { result: TranscribeResponse }) {
       <label htmlFor={id} className="label">
         Fix any mistakes (this teaches Legible your handwriting)
       </label>
-      <textarea id={id} value={text} onChange={(e) => setText(e.target.value)} />
+      <span id={`${id}-hint`} className="muted small">
+        Keep one line of text for each line of handwriting, so each line can be matched with your writing.
+      </span>
+      <textarea
+        id={id}
+        aria-describedby={`${id}-hint`}
+        rows={Math.max(3, result.lines.length + 1)}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
       <div className="row">
         <button className="btn btn--secondary" type="submit" disabled={status === 'saving' || !text.trim()}>
           {status === 'saving' ? 'Saving…' : 'Save correction'}
