@@ -93,6 +93,7 @@ class HandwritingService:
                         self.settings.htr_checkpoint,
                         device=self.settings.htr_device,
                         beam_size=self.settings.htr_beam_size,
+                        onnx_path=self.settings.htr_onnx,
                     )
                     log.info(
                         "loaded handwriting model %s on %s in %.1fs",

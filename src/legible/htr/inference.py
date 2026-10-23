@@ -3,7 +3,9 @@
     legible-transcribe photo.jpg --checkpoint runs/htr-large/best.pt
 
 Two decoders: ``fast`` (greedy CTC, a single pass) and ``accurate`` (attention beam
-search rescored with CTC, which also yields alternative readings). Confidence is the
+search rescored with CTC, which also yields alternative readings). With an ONNX export
+(``legible-export``), ``fast`` runs the encoder in ONNX Runtime, about twice as fast as
+PyTorch on a CPU; personal adapters and ``accurate`` always use PyTorch. Confidence is the
 model's probability for each emitted letter; the page's *legibility* is the mean over
 letters, which the app shows as a meter and uses to highlight uncertain letters.
 """
@@ -55,7 +57,8 @@ class PageResult:
 
 class Transcriber:
     def __init__(self, model: HybridHTR, vocab: Vocab, meta: dict[str, Any], device: torch.device,
-                 beam_size: int = 6, max_width: int = 2048, batch_lines: int = 16, lora_rank: int = 8):
+                 beam_size: int = 6, max_width: int = 2048, batch_lines: int = 16, lora_rank: int = 8,
+                 onnx_session: Any = None):
         self.model = model.to(device).eval()
         self.vocab = vocab
         self.meta = meta
@@ -70,14 +73,18 @@ class Transcriber:
         self.lora_targets = tuple(inject_lora(self.model, rank=lora_rank))
         self.lora_rank = lora_rank
         self.model.to(device)
+        self.onnx = onnx_session
+        self._adapter_active = False
 
     @classmethod
-    def from_checkpoint(cls, path: str | Path, device: str = "auto", beam_size: int = 6) -> "Transcriber":
+    def from_checkpoint(cls, path: str | Path, device: str = "auto", beam_size: int = 6,
+                        onnx_path: str | Path | None = None) -> "Transcriber":
         dev = pick_device(device)
         model, vocab, meta = load_model(path, "cpu")
         config = meta.get("config") or {}
         max_width = int((config.get("data") or {}).get("max_width") or 2048)
-        return cls(model, vocab, meta, dev, beam_size=beam_size, max_width=max_width)
+        session = _onnx_session(onnx_path, str(meta.get("version") or "unversioned")) if onnx_path else None
+        return cls(model, vocab, meta, dev, beam_size=beam_size, max_width=max_width, onnx_session=session)
 
     # ------------------------------------------------------------------ recognition
 
@@ -105,6 +112,13 @@ class Transcriber:
             batch = torch.zeros(len(idx), 1, self.height, padded)
             for row, i in enumerate(idx):
                 batch[row, 0, :, : widths[row]] = torch.from_numpy(lines[i])
+            if decoder == "fast" and self.onnx is not None and not self._adapter_active:
+                log_probs, lengths = self.onnx.run(None, {"images": batch.numpy(),
+                                                          "widths": np.asarray(widths, dtype=np.int64)})
+                hyps = ctc_greedy(torch.from_numpy(log_probs), torch.from_numpy(lengths))
+                for row, i in enumerate(idx):
+                    results[i] = hyps[row]
+                continue
             images = batch.to(self.device)
             width_t = torch.tensor(widths, device=self.device)
             with self._autocast():
@@ -144,10 +158,11 @@ class Transcriber:
         """Recognizes prepared lines (the part that uses the model and any adapter)."""
         started = time.perf_counter() if started is None else started
         try:
-            self._use_adapter(adapter)
+            self._adapter_active = self._use_adapter(adapter)
             hyps = self.recognize(inks, decoder)
         finally:
             clear_lora(self.model)
+            self._adapter_active = False
 
         lines = []
         for crop, hyp in zip(crops, hyps):
@@ -173,6 +188,23 @@ class Transcriber:
         started = time.perf_counter()
         crops, inks = self.find_lines(image, mode)
         return self.read(crops, inks, decoder, adapter, started)
+
+
+def _onnx_session(path: str | Path, model_version: str):
+    """An ONNX Runtime session for the "fast" path, or None if it can't be used safely."""
+    try:
+        import onnxruntime as ort
+
+        from .export import exported_version
+    except ImportError:
+        log.warning("onnxruntime is not installed; serving without the ONNX fast path")
+        return None
+    session = ort.InferenceSession(str(path), providers=["CPUExecutionProvider"])
+    exported = exported_version(session)
+    if exported != model_version:
+        log.warning("ignoring %s: exported from model %s, but serving %s", path, exported, model_version)
+        return None
+    return session
 
 
 def main(argv: list[str] | None = None) -> int:

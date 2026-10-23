@@ -8,7 +8,8 @@ data:
     - {type: synthetic, name: synth_irregular, weight: 2.0, fonts_dir: assets/fonts,
        corpus: data/corpus/sentences.txt, size: 2000000, irregularity: 0.9}
     - {type: manifest, name: iam, weight: 1.0, path: data/iam/train.jsonl}
-    # - {type: manifest, name: dysgraphia, weight: 2.0, path: data/dysgraphia/train.jsonl}
+    # Consented corrections exported from the app (legible-export-research, then legible-prepare split):
+    # - {type: manifest, name: dysgraphia, weight: 2.0, path: data/consented/train.jsonl}
   augment:
     strength: 0.85
     p_elastic: 0.7
