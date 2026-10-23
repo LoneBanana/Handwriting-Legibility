@@ -103,6 +103,8 @@ def me(user: CurrentUser) -> UserOut:
 @router.patch("/me/settings", response_model=UserOut)
 def update_settings(patch: UserSettingsPatch, user: CurrentUser, db: DbSession) -> UserOut:
     merged = {**load_settings(user).model_dump(), **patch.model_dump(exclude_unset=True)}
+    if not merged["store_handwriting_samples"]:
+        merged["share_samples_for_research"] = False  # nothing kept, nothing to share
     user.settings = UserSettings.model_validate(merged).model_dump()
     db.commit()
     return user_out(user)

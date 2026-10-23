@@ -67,7 +67,8 @@ type UserSettings = {
   reduce_motion: boolean;
   tts_voice: string | null;    // SpeechSynthesis voice name
   store_handwriting_samples: boolean;  // consent to keep uploads for personalization
-};
+  share_samples_for_research: boolean; // separate opt-in: corrected lines may train the shared model
+};                                     // (forced false while store_handwriting_samples is false)
 
 type User = { id: string; email: string; display_name: string; created_at: string; settings: UserSettings };
 

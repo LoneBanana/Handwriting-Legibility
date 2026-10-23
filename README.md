@@ -53,12 +53,14 @@ Settings are environment variables (or a `.env` file; see [.env.example](.env.ex
 |---|---|
 | `LEGIBLE_HTR_CHECKPOINT` | Handwriting model checkpoint (`best.pt`/`final.pt` from training) |
 | `LEGIBLE_HTR_DEVICE` | `auto` (CUDA, then Apple MPS, then CPU), or e.g. `cuda:1` |
+| `LEGIBLE_HTR_ONNX` | Optional `legible-export` file: ~3× faster "Quick" reading on CPU-only servers |
 | `ANTHROPIC_API_KEY` | Enables Claude for clarification, conversation, and comprehension questions |
 | `LEGIBLE_LLM_MODEL` | Claude model id (default `claude-opus-5-5`) |
 | `LEGIBLE_TAVUS_API_KEY`, `LEGIBLE_TAVUS_REPLICA_ID`, `LEGIBLE_TAVUS_PERSONA_ID` | Optional realistic video avatar (Tavus); otherwise the built-in avatar |
 | `LEGIBLE_DATABASE_URL` | Defaults to SQLite in `data/`; use Postgres in production (`pip install -e .[postgres]`) |
 | `LEGIBLE_JWT_SECRET` | Required in production |
 | `LEGIBLE_DATA_DIR` | Database, consented uploads, and personal adapters |
+| `LEGIBLE_AUTO_MIGRATE` | Apply database migrations at startup (default `true`); turn off with several replicas and run `legible-db upgrade` per release |
 | `LEGIBLE_CORS_ORIGINS` | JSON list of allowed browser origins when the web app is served elsewhere |
 
 ## Training the handwriting model
@@ -93,14 +95,17 @@ docker compose up --build                # Postgres + API + built web app on :80
 The image serves the API and the built web app from one origin. Mount trained
 checkpoints at `/models` and set `LEGIBLE_HTR_CHECKPOINT`. For GPU inference use a CUDA
 base image (see the `Dockerfile` comments). Run one worker per process (the model is
-loaded once per process) and scale with replicas. The database schema is created on
-startup; add a migration tool such as Alembic before evolving it in production.
+loaded once per process) and scale with replicas. Database migrations (Alembic) run at
+startup; with several replicas set `LEGIBLE_AUTO_MIGRATE=false` and run
+`legible-db upgrade` once per release. After changing `models.py`, generate a migration
+with `legible-db revision -m "what changed"` and review it before committing.
 
 ## Privacy and scope
 
 * Handwriting photos are stored only if the learner opts in (Settings), and only to
-  personalise *their own* model. Settings can delete all samples, or the whole account
-  and everything attached to it.
+  personalise *their own* model. A second, separate opt-in shares corrected lines
+  (pseudonymously) to improve the shared model for everyone; see docs/TRAINING.md.
+  Settings can delete all samples, or the whole account and everything attached to it.
 * Text sent to Claude (transcriptions to clarify, questions asked in Talk) is processed
   by Anthropic's API; the Talk avatar, if Tavus is enabled, is rendered by Tavus.
 * Legible supports practice and access. It is not a diagnostic tool or a medical

@@ -11,6 +11,7 @@ export type UserSettings = {
   reduce_motion: boolean
   tts_voice: string | null
   store_handwriting_samples: boolean
+  share_samples_for_research: boolean
 }
 
 export type User = {

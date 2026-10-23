@@ -7,6 +7,9 @@ dynamic batch size and width, and returns per-column log-probabilities plus the 
 column count of each line, ready for greedy or beam CTC decoding (the app's "fast"
 mode). The autoregressive decoder stays in PyTorch. The export is verified against
 PyTorch with ONNX Runtime at a width different from the one used for tracing.
+
+The checkpoint's model version is stored in the file's metadata
+(``legible_model_version``), so a server never pairs an export with a different model.
 """
 
 from __future__ import annotations
@@ -35,8 +38,11 @@ class EncoderCTC(nn.Module):
         return self.model.ctc_logits(enc).float().log_softmax(-1), enc.col_lengths
 
 
+VERSION_KEY = "legible_model_version"
+
+
 def export_onnx(checkpoint: str | Path, out: str | Path, opset: int = 18) -> Path:
-    model, _, _ = load_model(checkpoint, "cpu")
+    model, _, meta = load_model(checkpoint, "cpu")
     wrapper = EncoderCTC(model).eval()
     height = model.cfg.img_height
     images = torch.rand(2, 1, height, 256)
@@ -55,8 +61,23 @@ def export_onnx(checkpoint: str | Path, out: str | Path, opset: int = 18) -> Pat
             opset_version=opset,
             dynamo=False,
         )
+    _stamp_version(out, str(meta.get("version") or "unversioned"))
     verify(wrapper, out, height)
     return out
+
+
+def _stamp_version(path: Path, version: str) -> None:
+    import onnx
+
+    graph = onnx.load(str(path))
+    entry = graph.metadata_props.add()
+    entry.key, entry.value = VERSION_KEY, version
+    onnx.save(graph, str(path))
+
+
+def exported_version(session) -> str | None:
+    """The model version an ONNX Runtime session was exported from, if recorded."""
+    return session.get_modelmeta().custom_metadata_map.get(VERSION_KEY)
 
 
 def verify(wrapper: nn.Module, path: Path, height: int, atol: float = 2e-3) -> None:

@@ -90,11 +90,22 @@ for example, is free for non-commercial research only. Keep validation and test 
 handwriting.
 
 **Dysgraphic samples.** The most valuable data is real handwriting from people with
-dysgraphia. Collect it only with informed consent (and ethics review where required),
-remove names and other identifying content, and store it separately from the app's
-personalization samples. Users consent in the app only to *personal* adaptation, not to
-global training (see "Privacy" below). Add such data as another manifest in
-`finetune_dysgraphia.yaml` with a high weight.
+dysgraphia. The app collects it with a dedicated, opt-in consent: in Settings, learners
+who keep their samples can additionally choose "Also share my corrected samples to
+improve Legible for everyone". Export those lines as a manifest:
+
+```bash
+legible-export-research --out data/consented          # uses LEGIBLE_DATABASE_URL / LEGIBLE_DATA_DIR
+legible-prepare split data/consented/all.jsonl --val 0.1 --test 0.1
+```
+
+Only learners whose sharing setting is on at export time are included, and only lines
+whose correction pairs one-to-one with a detected line. Writers appear as a keyed hash
+(stable across exports, so splits stay writer-disjoint), never a name or email; the
+words themselves can still be personal, so handle exports as research data (ethics
+review where required). Then enable the `dysgraphia` manifest in
+`finetune_dysgraphia.yaml` with a high weight. Data collected outside the app needs the
+same informed consent and de-identification.
 
 ## 2. Train
 
@@ -163,7 +174,10 @@ legible-export --checkpoint runs/htr-large/best.pt --out models/htr-ctc.onnx   #
 ```
 
 The ONNX export (encoder + CTC head, dynamic batch and width) is verified against
-PyTorch with ONNX Runtime during export. Use it for CPU-only or on-device "fast" mode.
+PyTorch with ONNX Runtime during export and records which checkpoint it came from. Set
+`LEGIBLE_HTR_ONNX=models/htr-ctc.onnx` and the API runs "Quick" reading through ONNX
+Runtime, about 3× faster per page on a CPU than PyTorch (an export from a different
+checkpoint is ignored). "Careful" reading and personal adapters always use PyTorch.
 
 Page photos are split into lines by `legible/htr/segment.py`. Instead of one projection
 profile, it tracks lines across the page strip by strip, so lines that climb, fall, or
@@ -187,5 +201,7 @@ after you deploy a new base model, adapters retrain as users keep correcting.
 * Photos are stored only when the user opts in, and only for their own adapter.
 * Settings → "Delete my account" and `DELETE /api/handwriting/samples` remove photos,
   corrections, and adapters from disk.
-* Using user samples to train the *shared* model needs a separate, explicit consent
-  that the app does not collect today.
+* Samples reach the *shared* model only through the separate research-sharing consent
+  and `legible-export-research` (see "Dysgraphic samples" above). Turning sharing off,
+  deleting samples, or deleting the account stops future exports; copies already
+  exported for training are governed by your research-data policy.

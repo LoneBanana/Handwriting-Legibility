@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     environment: Literal["development", "test", "production"] = "development"
     data_dir: Path = Path("data")
     database_url: str | None = None          # default: sqlite:///<data_dir>/legible.db
+    # Apply pending migrations at startup. With several replicas, turn this off and run
+    # `legible-db upgrade` once per release instead, so replicas never race.
+    auto_migrate: bool = True
     jwt_secret: SecretStr | None = None      # required in production
     jwt_ttl_hours: int = 24 * 14
     cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
@@ -29,6 +32,7 @@ class Settings(BaseSettings):
     # Phase 1: handwriting model
     htr_checkpoint: Path | None = None       # a checkpoint written by legible-train
     htr_device: str = "auto"                 # auto | cpu | cuda | cuda:1 | mps
+    htr_onnx: Path | None = None             # optional legible-export file: faster "Quick" reading on CPU
     htr_beam_size: int = 6
     personalize_min_samples: int = 8         # corrected lines before a personal adapter is trained
     personalize_steps: int = 300

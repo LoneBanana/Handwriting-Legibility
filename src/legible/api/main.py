@@ -19,7 +19,8 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from .. import __version__
-from .db import init_db, make_engine, make_sessionmaker
+from .db import make_engine, make_sessionmaker
+from .migrate import upgrade
 from .routers import auth, converse, handwriting, literacy, numeracy, progress
 from .services.handwriting import HandwritingService
 from .services.llm import build_llm
@@ -33,7 +34,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or get_settings()
     settings.data_dir.mkdir(parents=True, exist_ok=True)
     engine = make_engine(settings.resolved_database_url)
-    init_db(engine)
+    if settings.auto_migrate:
+        upgrade(engine)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
