@@ -8,6 +8,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   reduce_motion: false,
   tts_voice: null,
   store_handwriting_samples: false,
+  share_samples_for_research: false,
 }
 
 export const FONT_SCALE_RANGE = { min: 0.8, max: 2, step: 0.1 } as const

@@ -15,6 +15,7 @@ const count = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : 
 export function HandwritingSamples() {
   const { settings, saveSettings } = useAuth()
   const [pending, setPending] = useState<boolean | null>(null)
+  const [sharePending, setSharePending] = useState<boolean | null>(null)
   const [consentMessage, setConsentMessage] = useState('')
   const [consentError, setConsentError] = useState<unknown>(null)
   const samples = useResource(handwritingSampleCount)
@@ -24,6 +25,25 @@ export function HandwritingSamples() {
   const [deletedMessage, setDeletedMessage] = useState('')
 
   const keep = pending ?? settings.store_handwriting_samples
+  const share = keep && (sharePending ?? settings.share_samples_for_research)
+
+  const toggleShare = async (next: boolean) => {
+    setSharePending(next)
+    setConsentError(null)
+    setConsentMessage('')
+    try {
+      await saveSettings({ share_samples_for_research: next })
+      setConsentMessage(
+        next
+          ? 'Saved. Thank you! Your corrected samples can now help Legible read hard-to-read handwriting better for everyone.'
+          : 'Saved. Your samples will no longer be shared.',
+      )
+    } catch (err) {
+      setConsentError(err)
+    } finally {
+      setSharePending(null)
+    }
+  }
 
   const toggle = async (next: boolean) => {
     setPending(next)
@@ -89,6 +109,25 @@ export function HandwritingSamples() {
           <strong>Keep my handwriting samples</strong>
           <br />
           <span className="muted small">Saved as soon as you change it.</span>
+        </span>
+      </label>
+      <label className="checkbox">
+        <input
+          type="checkbox"
+          checked={share}
+          onChange={(event) => void toggleShare(event.target.checked)}
+          disabled={!keep || pending !== null || sharePending !== null}
+          aria-describedby="share-samples-hint"
+        />
+        <span>
+          <strong>Also share my corrected samples to improve Legible for everyone</strong>
+          <br />
+          <span id="share-samples-hint" className="muted small">
+            Optional, and separate from the setting above. Very little handwriting from people with dysgraphia exists
+            for training, so corrected lines are the most helpful data there is. Shared lines are labelled with a code,
+            never your name or email, but the words you wrote are included. Turn this off any time; it stops future
+            sharing.{!keep && ' Turn on “Keep my handwriting samples” first.'}
+          </span>
         </span>
       </label>
       <p className="small" role="status" style={{ margin: 0 }}>

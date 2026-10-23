@@ -19,6 +19,9 @@ class UserSettings(BaseModel):
     reduce_motion: bool = False
     tts_voice: str | None = Field(None, max_length=200)
     store_handwriting_samples: bool = False
+    # Separate, opt-in consent: corrected samples may be exported (pseudonymously) to
+    # train the shared model. Only meaningful while samples are being kept.
+    share_samples_for_research: bool = False
 
 
 class UserSettingsPatch(BaseModel):
@@ -31,6 +34,7 @@ class UserSettingsPatch(BaseModel):
     reduce_motion: bool | None = None
     tts_voice: str | None = Field(None, max_length=200)
     store_handwriting_samples: bool | None = None
+    share_samples_for_research: bool | None = None
 
 
 class UserOut(BaseModel):
