@@ -44,8 +44,3 @@ def make_engine(url: str) -> Engine:
 def make_sessionmaker(engine: Engine) -> sessionmaker:
     return sessionmaker(engine, expire_on_commit=False)
 
-
-def init_db(engine: Engine) -> None:
-    from . import models  # noqa: F401  (registers the tables)
-
-    Base.metadata.create_all(engine)
