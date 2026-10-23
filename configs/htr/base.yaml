@@ -1,0 +1,40 @@
+# ~12M-parameter model: one or a few GPUs. Prepare data first (docs/TRAINING.md):
+#   legible-prepare hf Teklia/IAM-line --out data/iam
+#   python scripts/download_fonts.py            # OFL handwriting fonts -> assets/fonts
+#   legible-train --config configs/htr/base.yaml
+model:
+  img_height: 64
+  cnn_channels: [48, 96, 192, 256]
+  cnn_depths: [1, 1, 2, 2]
+  d_model: 256
+  n_heads: 4
+  enc_layers: 6
+  dec_layers: 4
+  dropout: 0.1
+  drop_path: 0.1
+  ctc_weight: 0.3
+  label_smoothing: 0.1
+
+data:
+  train:
+    - {type: synthetic, name: synth, weight: 1.0, fonts_dir: assets/fonts, size: 500000, irregularity: 0.6, ramp_epochs: 3}
+    - {type: manifest, name: iam, weight: 1.0, path: data/iam/train.jsonl}
+  val:
+    - {type: manifest, name: iam_val, path: data/iam/validation.jsonl}
+  max_width: 2048
+  batch_size: 32
+  max_pixels: 2500000          # long lines get smaller batches
+  samples_per_epoch: 200000
+  num_workers: 8
+  augment:
+    strength: 0.5
+
+train:
+  output_dir: runs/htr-base
+  max_steps: 200000
+  lr: 5.0e-4
+  min_lr: 1.0e-5
+  warmup_steps: 4000
+  eval_every: 2000
+  save_every: 2000
+  precision: auto
