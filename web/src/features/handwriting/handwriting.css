@@ -1,0 +1,134 @@
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 180px;
+  padding: var(--space-5);
+  border: 3px dashed var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
+  text-align: center;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.dropzone[data-dragging='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.file-button {
+  position: relative;
+}
+
+.file-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-button:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.preview {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  line-height: 0;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.preview svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.preview rect {
+  fill: transparent;
+  stroke: var(--accent);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.preview rect[data-active='true'] {
+  fill: var(--focus-mark);
+  fill-opacity: 0.35;
+  stroke: var(--focus);
+  stroke-width: 3;
+}
+
+.transcript {
+  font-size: 1.25rem;
+  line-height: calc(var(--line-spacing) + 0.2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.transcript li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.transcript li[data-active='true'] {
+  background: var(--surface-2);
+}
+
+.transcript__text {
+  flex: 1;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.transcript__conf {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.char-low {
+  background: var(--warning-soft);
+  text-decoration: underline wavy var(--warning);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+  border-radius: 3px;
+}
+
+.clarified {
+  font-size: 1.25rem;
+  white-space: pre-wrap;
+}
+
+.change-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.change-list del {
+  color: var(--danger);
+}
+
+.change-list ins {
+  color: var(--success);
+  text-decoration: none;
+  font-weight: 700;
+}
